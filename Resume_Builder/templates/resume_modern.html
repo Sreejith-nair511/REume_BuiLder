@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume - Modern Template</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .modern-header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .modern-section {
+            margin: 20px 0;
+            color: #333;
+        }
+        .modern-section h2 {
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body style="background: linear-gradient(to right, #bdc3c7, #2c3e50);">
+    <div class="container">
+        <div class="modern-header animate__animated animate__zoomIn">
+            <h1>Resume of {{ resume['name'] }}</h1>
+        </div>
+        <div class="modern-section">
+            {% if resume['image_url'] %}
+                <img src="{{ url_for('static', filename=resume['image_url'].split('static/')[-1]) }}" class="img-fluid rounded mx-auto d-block mb-3" alt="User Image">
+            {% endif %}
+        </div>
+        <div class="modern-section">
+            <h2>Contact Information</h2>
+            <p><strong>Email:</strong> {{ resume['email'] }}</p>
+            <p><strong>Phone:</strong> {{ resume['phone'] }}</p>
+        </div>
+        <div class="modern-section">
+            <h2>Education</h2>
+            <p>{{ resume['education'] }}</p>
+        </div>
+        <div class="modern-section">
+            <h2>Experience</h2>
+            <p>{{ resume['experience'] }}</p>
+        </div>
+        <div class="modern-section">
+            <h2>Skills</h2>
+            <p>{{ resume['skills'] }}</p>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

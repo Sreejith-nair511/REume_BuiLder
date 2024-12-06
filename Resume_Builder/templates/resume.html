@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body style="background: linear-gradient(to bottom, #ece9e6, #ffffff);">
+    <div class="container">
+        <h1 class="my-4 text-center animate__animated animate__zoomIn">Resume of {{ resume['name'] }}</h1>
+        <div class="card">
+            <div class="card-body">
+                {% if resume['image_url'] %}
+                    <img src="{{ url_for('static', filename=resume['image_url']) }}" class="img-fluid rounded mx-auto d-block mb-3" alt="User Image">
+                {% endif %}
+                <p><strong>Email:</strong> {{ resume['email'] }}</p>
+                <p><strong>Phone:</strong> {{ resume['phone'] }}</p>
+                <p><strong>Education:</strong> {{ resume['education'] }}</p>
+                <p><strong>Experience:</strong> {{ resume['experience'] }}</p>
+                <p><strong>Skills:</strong> {{ resume['skills'] }}</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
